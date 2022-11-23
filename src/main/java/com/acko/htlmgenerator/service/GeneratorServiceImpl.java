@@ -1,5 +1,6 @@
 package com.acko.htlmgenerator.service;
 
+import com.acko.htlmgenerator.entities.Attributes;
 import com.acko.htlmgenerator.models.Coi;
 import com.acko.htlmgenerator.repositories.CoiRepository;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.OffsetDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -36,6 +38,11 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 //        return this.iconsMap.get(coverId);
         return "true";
+    }
+
+    @Override
+    public List<Attributes> getValuesForLob(String lob) {
+        return null;
     }
 
 }
