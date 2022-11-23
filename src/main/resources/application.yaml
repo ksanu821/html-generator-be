@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: html-generator-be
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+coi:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+
+secrets.filepath: /Users/navdeep.singh/Html-generator/src/main/resources/credentials.json
+
+---
+spring:
+  profiles: local
+
+  coi:
+    datasource:
+      url: jdbc:postgresql://localhost:5432/postgres
+      driver-class-name: org.postgresql.Driver
+
+secrets.filepath: /Users/navdeep.singh/Html-generator/src/main/resources/credentials.json
