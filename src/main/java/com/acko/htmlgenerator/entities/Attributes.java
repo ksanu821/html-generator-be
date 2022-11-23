@@ -1,4 +1,4 @@
-package com.acko.htlmgenerator.entities;
+package com.acko.htmlgenerator.entities;
 
 
 public class Attributes {

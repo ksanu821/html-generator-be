@@ -1,6 +1,6 @@
-package com.acko.htlmgenerator.service;
+package com.acko.htmlgenerator.service;
 
-import com.acko.htlmgenerator.entities.Attributes;
+import com.acko.htmlgenerator.entities.Attributes;
 
 import java.util.List;
 

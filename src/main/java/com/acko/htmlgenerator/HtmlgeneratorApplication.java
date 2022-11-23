@@ -1,4 +1,4 @@
-package com.acko.htlmgenerator;
+package com.acko.htmlgenerator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,16 +7,16 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.acko.htlmgenerator"})
-@EntityScan(basePackages = {"com.acko.htlmgenerator"})
+@ComponentScan(basePackages = {"com.acko.htmlgenerator"})
+@EntityScan(basePackages = {"com.acko.htmlgenerator"})
 @EnableJpaRepositories(
 		basePackages = {
-				"com.acko.htlmgenerator.repositories"
+				"com.acko.htmlgenerator.repositories"
 		})
-public class HtlmgeneratorApplication {
+public class HtmlgeneratorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HtlmgeneratorApplication.class, args);
+		SpringApplication.run(HtmlgeneratorApplication.class, args);
 	}
 
 }

@@ -1,13 +1,11 @@
-package com.acko.htlmgenerator.controller;
+package com.acko.htmlgenerator.controller;
 
-import com.acko.htlmgenerator.entities.Attributes;
-import com.acko.htlmgenerator.service.GeneratorService;
+import com.acko.htmlgenerator.entities.Attributes;
+import com.acko.htmlgenerator.service.GeneratorService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

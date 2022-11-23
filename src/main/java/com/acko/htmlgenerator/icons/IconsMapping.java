@@ -1,4 +1,4 @@
-package com.acko.htlmgenerator.icons;
+package com.acko.htmlgenerator.icons;
 
 import java.util.HashMap;
 import java.util.Map;

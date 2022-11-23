@@ -1,4 +1,4 @@
-//package com.acko.htlmgenerator;
+//package com.acko.htmlgenerator;
 //
 //import org.junit.jupiter.api.Test;
 //import org.springframework.boot.test.context.SpringBootTest;

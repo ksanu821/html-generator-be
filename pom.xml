@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.acko</groupId>
-	<artifactId>htlmgenerator</artifactId>
+	<artifactId>htmlgenerator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>htlmgenerator</name>
+	<name>htmlgenerator</name>
 	<description>Html Generator to generate html templates dynamically</description>
 	<properties>
 		<java.version>1.8</java.version>

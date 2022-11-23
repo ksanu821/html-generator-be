@@ -1,8 +1,8 @@
-package com.acko.htlmgenerator.service;
+package com.acko.htmlgenerator.service;
 
-import com.acko.htlmgenerator.entities.Attributes;
-import com.acko.htlmgenerator.models.Coi;
-import com.acko.htlmgenerator.repositories.CoiRepository;
+import com.acko.htmlgenerator.entities.Attributes;
+import com.acko.htmlgenerator.models.Coi;
+import com.acko.htmlgenerator.repositories.CoiRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

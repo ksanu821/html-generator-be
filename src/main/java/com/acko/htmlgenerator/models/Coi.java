@@ -1,4 +1,4 @@
-package com.acko.htlmgenerator.models;
+package com.acko.htmlgenerator.models;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

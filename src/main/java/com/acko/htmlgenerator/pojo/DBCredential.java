@@ -1,4 +1,4 @@
-package com.acko.htlmgenerator.pojo;
+package com.acko.htmlgenerator.pojo;
 
 import lombok.Data;
 

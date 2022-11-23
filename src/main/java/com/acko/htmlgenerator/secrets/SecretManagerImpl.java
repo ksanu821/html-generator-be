@@ -1,7 +1,7 @@
-package com.acko.htlmgenerator.secrets;
+package com.acko.htmlgenerator.secrets;
 
-import com.acko.htlmgenerator.pojo.DBCredential;
-import com.acko.htlmgenerator.pojo.Secrets;
+import com.acko.htmlgenerator.pojo.DBCredential;
+import com.acko.htmlgenerator.pojo.Secrets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;

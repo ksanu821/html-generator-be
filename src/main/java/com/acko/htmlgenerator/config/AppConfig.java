@@ -1,4 +1,4 @@
-package com.acko.htlmgenerator.config;
+package com.acko.htmlgenerator.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
