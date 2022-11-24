@@ -281,7 +281,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         if (this.templateHistoryRepository.findByTemplateNameAndLob(templateName, lob).isPresent()){
             TemplateHistory templateHistory =  this.templateHistoryRepository.findByTemplateNameAndLob(templateName, lob).get();
             GeneratedCoi generatedCoi = this.generatedCoiRepository.findByTemplateNameAndLob(templateName, lob).get();
-            String htmlContent = staticOne+generatedCoi.getPartnerDetails()+staticTwo+generatedCoi.getInsuredDetails()+staticThree+generatedCoi.getCoverageDetails()+staticFour;
+            String htmlContent = this.getHtml(generatedCoi);
             return new TemplateHistoryWithHtmlContent(templateHistory, htmlContent);
         } else {
             throw new IllegalArgumentException("No Records found for this template name and lob");
