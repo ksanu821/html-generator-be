@@ -14,15 +14,7 @@ public class CorsConfig implements WebMvcConfigurer {
     public void addCorsMappings(final CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins(
-                        "http://localhost:3000",
-                        "http://localhost:6006",
-                        "https://partnership-presentation-layer.internal.ackodev.com",
-                        "http://localhost:3006",
-                        "https://netdu.acko.com",
-                        "https://www.ackodev.com",
-                        "https://partnership-presentation-layer-dev.internal.ackodev.com",
-                        "https://partner-portal.corp.acko.com",
-                        "https://partnership-presentation-layer.internal.live.acko.com"
+                        "http://localhost:3000"
                 )
                 .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
