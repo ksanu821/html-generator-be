@@ -43,4 +43,9 @@ public class GeneratorController {
     public String createCoverageDetails(@RequestBody HeaderRequestDTO request) {
         return this.generatorService.getCoverageTemplate(request);
     }
+
+    @PostMapping("/createTemplate")
+    public String createTemplate(@RequestBody HeaderRequestDTO request) {
+        return this.generatorService.createTemplate(request);
+    }
 }

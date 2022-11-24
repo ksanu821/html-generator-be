@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -61,7 +62,7 @@ public class GeneratorServiceImpl implements GeneratorService {
             insuredDetails += updatedInsuredDetails;
         }
         GeneratedCoi generatedCoi = this.generatedCoiRepository.findByTemplateNameAndLob(request.getTemplateName(), request.getLob()).orElseThrow(() -> new IllegalArgumentException("No record for this template name!"));
-        this.generatedCoiRepository.save(generatedCoi.toBuilder()
+        generatedCoi = this.generatedCoiRepository.save(generatedCoi.toBuilder()
                         .insuredDetails(insuredDetails)
                 .build());
 //        return insuredDetails+"\n";
@@ -78,15 +79,18 @@ public class GeneratorServiceImpl implements GeneratorService {
         header = header.replace("partner_address", request.getPartnerDetails().getPartnerAddress());
         header = header.replace("partner_name", request.getPartnerDetails().getPartnerName());
 //        header = header.replace("master_policy_number", request.getPartnerDetails().getMasterPolicyNumber());
-        this.generatedCoiRepository.save(GeneratedCoi.builder()
-                    .partnerDetails(header)
-                        .insuredDetails("")
-                        .coverageDetails("")
-                        .userId("123")
-                        .lob(request.getLob())
-                        .templateName(request.getTemplateName())
-                .build());
+//        this.generatedCoiRepository.save(GeneratedCoi.builder()
+//                    .partnerDetails(header)
+//                        .insuredDetails("")
+//                        .coverageDetails("")
+//                        .userId("123")
+//                        .lob(request.getLob())
+//                        .templateName(request.getTemplateName())
+//                .build());
         GeneratedCoi generatedCoi = this.generatedCoiRepository.findByTemplateNameAndLob(request.getTemplateName(), request.getLob()).orElseThrow(() -> new IllegalArgumentException("No record for this template name!"));
+        generatedCoi = this.generatedCoiRepository.save(generatedCoi.toBuilder()
+                .partnerDetails(header)
+                .build());
 
         return staticOne+generatedCoi.getPartnerDetails()+staticTwo+generatedCoi.getInsuredDetails()+staticThree+generatedCoi.getCoverageDetails()+staticFour;
 
@@ -111,7 +115,7 @@ public class GeneratorServiceImpl implements GeneratorService {
             coverageDetails += updatedCoverageDetails;
         }
         GeneratedCoi generatedCoi = this.generatedCoiRepository.findByTemplateNameAndLob(request.getTemplateName(), request.getLob()).orElseThrow(() -> new IllegalArgumentException("No record for this template name!"));
-        this.generatedCoiRepository.save(generatedCoi.toBuilder()
+        generatedCoi = this.generatedCoiRepository.save(generatedCoi.toBuilder()
                 .insuredDetails(coverageDetails)
                 .build());
         return staticOne+generatedCoi.getPartnerDetails()+staticTwo+generatedCoi.getInsuredDetails()+staticThree+generatedCoi.getCoverageDetails()+staticFour;
@@ -128,4 +132,21 @@ public class GeneratorServiceImpl implements GeneratorService {
 //        String replacedText = substitutor.replace(myText);
 //        System.out.println(replacedText);
 //    }
+
+    @Override
+    public String createTemplate(HeaderRequestDTO request) {
+        Optional<GeneratedCoi> generatedCoi = this.generatedCoiRepository.findByTemplateNameAndLob(request.getTemplateName(), request.getLob());
+        if (generatedCoi.isPresent()) {
+            this.generatedCoiRepository.save(GeneratedCoi.builder()
+                    .partnerDetails("")
+                        .insuredDetails("")
+                        .coverageDetails("")
+                        .userId("123")
+                        .lob(request.getLob())
+                        .templateName(request.getTemplateName())
+                .build());
+            return staticOne+staticTwo+staticThree+staticFour;
+        }
+        return staticOne+generatedCoi.get().getPartnerDetails()+staticTwo+generatedCoi.get().getInsuredDetails()+staticThree+generatedCoi.get().getCoverageDetails()+staticFour;
+    }
 }

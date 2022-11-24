@@ -17,4 +17,6 @@ public interface GeneratorService {
     public String getHeaderTemplate(HeaderRequestDTO request);
 
     public String getCoverageTemplate(HeaderRequestDTO request);
+
+    public String createTemplate(HeaderRequestDTO request);
 }
