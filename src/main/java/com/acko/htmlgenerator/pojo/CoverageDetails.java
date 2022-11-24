@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class CoverageDetails {
-    private String title;
-    private String iconLink;
+    private String displayName;
+    private String link;
     private String description;
     private String subDescription;
 }

@@ -54,7 +54,7 @@ public class GeneratorServiceImpl implements GeneratorService {
             String updatedInsuredDetails = basicInsuredDetails;
 
             updatedInsuredDetails = updatedInsuredDetails.replace("display_name", attributes.getDisplayName());
-            updatedInsuredDetails = updatedInsuredDetails.replace("attribute_value", attributes.getAttributeValue());
+            updatedInsuredDetails = updatedInsuredDetails.replace("attribute_value", attributes.getValue());
 
             insuredDetails += updatedInsuredDetails;
         }
@@ -104,10 +104,10 @@ public class GeneratorServiceImpl implements GeneratorService {
         for(CoverageDetails attributes: attributesList) {
             String updatedCoverageDetails = basicCoverageDetails;
 
-            updatedCoverageDetails = updatedCoverageDetails.replace("title", attributes.getTitle());
-            updatedCoverageDetails = updatedCoverageDetails.replace("icon_link", attributes.getIconLink());
-            updatedCoverageDetails = updatedCoverageDetails.replace("description", attributes.getDescription());
-            updatedCoverageDetails = updatedCoverageDetails.replace("sub_description", attributes.getSubDescription());
+            updatedCoverageDetails = updatedCoverageDetails.replace("title", attributes.getDisplayName());
+            updatedCoverageDetails = updatedCoverageDetails.replace("icon_link", attributes.getLink());
+//            updatedCoverageDetails = updatedCoverageDetails.replace("description", attributes.getDescription());
+//            updatedCoverageDetails = updatedCoverageDetails.replace("sub_description", attributes.getSubDescription());
 
             coverageDetails += updatedCoverageDetails;
         }
@@ -133,7 +133,7 @@ public class GeneratorServiceImpl implements GeneratorService {
     @Override
     public String createTemplate(HeaderRequestDTO request) {
         Optional<GeneratedCoi> generatedCoi = this.generatedCoiRepository.findByTemplateNameAndLob(request.getTemplateName(), request.getLob());
-        if (generatedCoi.isPresent()) {
+        if (!generatedCoi.isPresent()) {
             this.generatedCoiRepository.save(GeneratedCoi.builder()
                     .partnerDetails("")
                         .insuredDetails("")
