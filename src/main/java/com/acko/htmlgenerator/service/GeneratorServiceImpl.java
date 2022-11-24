@@ -2,11 +2,13 @@ package com.acko.htmlgenerator.service;
 
 import com.acko.htmlgenerator.dto.HeaderRequestDTO;
 import com.acko.htmlgenerator.models.Coi;
+import com.acko.htmlgenerator.models.CoverageIcon;
 import com.acko.htmlgenerator.models.GeneratedCoi;
 import com.acko.htmlgenerator.models.LobAttributes;
 import com.acko.htmlgenerator.pojo.CoverageDetails;
 import com.acko.htmlgenerator.pojo.InsuredDetails;
 import com.acko.htmlgenerator.repositories.CoiRepository;
+import com.acko.htmlgenerator.repositories.CoverageIconRepository;
 import com.acko.htmlgenerator.repositories.GeneratedCoiRepository;
 import com.acko.htmlgenerator.repositories.LobAttributesRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -29,16 +32,11 @@ public class GeneratorServiceImpl implements GeneratorService {
 
     private final LobAttributesRepository lobAttributesRepository;
 
-    @Override
-    public String getIconForCoverId(String coverId) {
-        this.coiRepository.save(Coi.builder()
-                .lob("internet")
-                .template("<></>")
-                .createdOn(OffsetDateTime.now())
-                .build());
+    private final CoverageIconRepository coverageIconRepository;
 
-//        return this.iconsMap.get(coverId);
-        return "true";
+    @Override
+    public List<CoverageIcon> getCovers() {
+        return this.coverageIconRepository.findAll();
     }
 
     @Override
