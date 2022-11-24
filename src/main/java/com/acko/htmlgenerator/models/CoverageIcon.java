@@ -40,4 +40,7 @@ public class CoverageIcon {
     @CreationTimestamp
     @Column(name = "created_on")
     private OffsetDateTime createdOn;
+
+    @Column(name = "display_name")
+    private String displayName;
 }
