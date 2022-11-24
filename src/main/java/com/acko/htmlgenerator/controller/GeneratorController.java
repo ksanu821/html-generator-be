@@ -1,6 +1,7 @@
 package com.acko.htmlgenerator.controller;
 
 import com.acko.htmlgenerator.dto.HeaderRequestDTO;
+import com.acko.htmlgenerator.models.CoverageIcon;
 import com.acko.htmlgenerator.models.LobAttributes;
 import com.acko.htmlgenerator.service.GeneratorService;
 import lombok.AllArgsConstructor;
@@ -19,9 +20,9 @@ public class GeneratorController {
         return ResponseEntity.ok("This is home page");
     }
 
-    @GetMapping("/getIconLink/{coverId}")
-    public String getIconLink(@PathVariable String coverId) {
-        return this.generatorService.getIconForCoverId(coverId);
+    @GetMapping("/getCovers")
+    public List<CoverageIcon> getIconLink() {
+        return this.generatorService.getCovers();
     }
 
     @GetMapping("/getAttributesForLob/{lob}")
