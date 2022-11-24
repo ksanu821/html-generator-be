@@ -1,7 +1,9 @@
 package com.acko.htmlgenerator.controller;
 
 import com.acko.htmlgenerator.dto.HeaderRequestDTO;
+import com.acko.htmlgenerator.entities.TemplateHistoryWithHtmlContent;
 import com.acko.htmlgenerator.models.CoverageIcon;
+import com.acko.htmlgenerator.models.GeneratedCoi;
 import com.acko.htmlgenerator.models.LobAttributes;
 import com.acko.htmlgenerator.service.GeneratorService;
 import lombok.AllArgsConstructor;
@@ -61,7 +63,12 @@ public class GeneratorController {
     }
 
     @GetMapping("/getTemplatesByLob/{lob}")
-    public List<String> getTemplatesByLob(@PathVariable String lob) {
-        return null;
+    public List<GeneratedCoi> getTemplatesByLob(@PathVariable String lob) {
+        return this.generatorService.getTemplatesByLob(lob);
+    }
+
+    @GetMapping("/getTemplateDetails/{lob}/{templateName}")
+    public TemplateHistoryWithHtmlContent getTemplateDetailsByLob(@PathVariable String lob, @PathVariable String templateNamee) {
+        return this.generatorService.getTemplateHistoryByTemplateNameAndLob(templateNamee, lob);
     }
 }
