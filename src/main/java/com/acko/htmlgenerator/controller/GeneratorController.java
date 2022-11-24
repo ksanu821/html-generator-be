@@ -1,7 +1,6 @@
 package com.acko.htmlgenerator.controller;
 
 import com.acko.htmlgenerator.dto.HeaderRequestDTO;
-import com.acko.htmlgenerator.entities.Attributes;
 import com.acko.htmlgenerator.models.LobAttributes;
 import com.acko.htmlgenerator.service.GeneratorService;
 import lombok.AllArgsConstructor;
@@ -36,9 +35,12 @@ public class GeneratorController {
         return ResponseEntity.ok(this.generatorService.getHeaderTemplate(request));
     }
     @PostMapping("/createInsuredDetails")
-    public String createInsuredDetails(@RequestBody List<Attributes> attributesList) {
-        return this.generatorService.createInsuredDetails(attributesList);
+    public String createInsuredDetails(@RequestBody HeaderRequestDTO request) {
+        return this.generatorService.createInsuredDetails(request);
     }
 
-
+    @PostMapping("/createCoverageDetails")
+    public String createCoverageDetails(@RequestBody HeaderRequestDTO request) {
+        return this.generatorService.getCoverageTemplate(request);
+    }
 }

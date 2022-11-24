@@ -12,7 +12,9 @@ public interface GeneratorService {
 
     public List<LobAttributes> getValuesForLob(String lob);
 
-    public String createInsuredDetails(List<Attributes> attributesList);
+    public String createInsuredDetails(HeaderRequestDTO request);
 
     public String getHeaderTemplate(HeaderRequestDTO request);
+
+    public String getCoverageTemplate(HeaderRequestDTO request);
 }

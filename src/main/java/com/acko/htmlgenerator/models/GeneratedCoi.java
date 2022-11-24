@@ -37,9 +37,20 @@ public class GeneratedCoi {
     @Column(name = "lob")
     private String lob;
 
+    @Column(name = "template_name")
+    private String templateName;
+
     @Type(type = "text")
-    @Column(name = "template")
-    private String template;
+    @Column(name = "partner_details")
+    private String partnerDetails;
+
+    @Type(type = "text")
+    @Column(name = "coverage_details")
+    private String coverageDetails;
+
+    @Type(type = "text")
+    @Column(name = "insured_details")
+    private String insuredDetails;
 
     @CreationTimestamp
     @Column(name = "created_on")
