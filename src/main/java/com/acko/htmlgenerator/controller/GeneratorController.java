@@ -49,4 +49,14 @@ public class GeneratorController {
     public String createTemplate(@RequestBody HeaderRequestDTO request) {
         return this.generatorService.createTemplate(request);
     }
+
+    @PostMapping("/modifyTemplate")
+    public String modifyTemplate(@RequestBody HeaderRequestDTO request) {
+        return this.generatorService.saveGeneratedHtml(request);
+    }
+
+    @PostMapping("/saveNewTemplate")
+    public String saveNewTemplate(@RequestBody HeaderRequestDTO request) {
+        return this.generatorService.saveNewGeneratedHtml(request);
+    }
 }

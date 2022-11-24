@@ -20,4 +20,8 @@ public interface GeneratorService {
     public String getCoverageTemplate(HeaderRequestDTO request);
 
     public String createTemplate(HeaderRequestDTO request);
+
+    public String saveGeneratedHtml(HeaderRequestDTO request);
+
+    public String saveNewGeneratedHtml(HeaderRequestDTO request);
 }
