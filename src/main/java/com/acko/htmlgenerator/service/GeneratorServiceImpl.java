@@ -220,4 +220,9 @@ public class GeneratorServiceImpl implements GeneratorService {
             throw new IllegalArgumentException("Record already found for this template name and lob");
         }
     }
+
+    @Override
+    public List<GeneratedCoi> getTemplatesByLob(String lob) {
+        return this.generatedCoiRepository.findAllByLob(lob);
+    }
 }

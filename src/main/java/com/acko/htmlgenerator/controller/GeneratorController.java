@@ -59,4 +59,9 @@ public class GeneratorController {
     public String saveNewTemplate(@RequestBody HeaderRequestDTO request) {
         return this.generatorService.saveNewGeneratedHtml(request);
     }
+
+    @GetMapping("/getTemplatesByLob/{lob}")
+    public List<String> getTemplatesByLob(@PathVariable String lob) {
+        return null;
+    }
 }
