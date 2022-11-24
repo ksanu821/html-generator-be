@@ -3,7 +3,9 @@ package com.acko.htmlgenerator.service;
 import com.acko.htmlgenerator.dto.HeaderRequestDTO;
 import com.acko.htmlgenerator.entities.Attributes;
 import com.acko.htmlgenerator.models.Coi;
+import com.acko.htmlgenerator.models.LobAttributes;
 import com.acko.htmlgenerator.repositories.CoiRepository;
+import com.acko.htmlgenerator.repositories.LobAttributesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GeneratorServiceImpl implements GeneratorService {
     private final CoiRepository coiRepository;
+
+    private final LobAttributesRepository lobAttributesRepository;
+
+    private String insuredDetailsTemplate = "<tr><tdstyle=\"padding: 15px 0 4px 0; vertical-align: top;\"><pstyle=\"margin: 0; font-weight: 400; font-size: 14px; color: #8a8a8a;\">display_name</p></td><tdstyle=\"padding: 15px 0 4px 0; vertical-align: top;\"><pstyle=\"margin: 0; font-weight: 400; color: #000; font-size: 14px;\">{{attribute_value}}</p></td>";
 
 
     @Override
@@ -29,8 +35,25 @@ public class GeneratorServiceImpl implements GeneratorService {
     }
 
     @Override
-    public List<Attributes> getValuesForLob(String lob) {
-        return null;
+    public List<LobAttributes> getValuesForLob(String lob) {
+        return this.lobAttributesRepository.findAllByLob(lob);
+    }
+
+    @Override
+    public String createInsuredDetails(List<Attributes> attributesList) {
+        String insuredDetails = "";
+
+        for(Attributes attributes: attributesList) {
+            String basicInsuredDetails = insuredDetailsTemplate;
+
+            basicInsuredDetails = basicInsuredDetails.replace("display_name", attributes.getDisplay_name());
+            basicInsuredDetails = basicInsuredDetails.replace("attribute_value", attributes.getAttribute_value());
+
+            insuredDetails += basicInsuredDetails;
+        }
+
+        return insuredDetails+"\n";
+
     }
 
     @Override
