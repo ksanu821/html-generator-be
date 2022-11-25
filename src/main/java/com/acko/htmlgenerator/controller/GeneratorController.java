@@ -68,7 +68,7 @@ public class GeneratorController {
     }
 
     @GetMapping("/getTemplateDetails/{lob}/{templateName}")
-    public TemplateHistoryWithHtmlContent getTemplateDetailsByLob(@PathVariable String lob, @PathVariable String templateNamee) {
-        return this.generatorService.getTemplateHistoryByTemplateNameAndLob(templateNamee, lob);
+    public TemplateHistoryWithHtmlContent getTemplateDetailsByLob(@PathVariable String lob, @PathVariable String templateName) {
+        return this.generatorService.getTemplateHistoryByTemplateNameAndLob(templateName, lob);
     }
 }
